@@ -1,0 +1,783 @@
+import React, { useState } from 'react';
+import './LoginSignup.css';
+import google from '../Assets/google.png';
+import fb from '../Assets/fb.png';
+import github from '../Assets/github.png';
+import insta from '../Assets/insta.png';
+import right from '../Assets/right_logo.png';
+import arrow_back from '../Assets/arrow_back.png';
+
+const LoginSignup = () => {
+  const [action, setAction] = useState("Sign Up");
+
+  
+  const headings = {
+    "Sign Up": "Create Account",
+    "Login": "Welcome Back",
+    "Forgot_Password": "",
+    "reset_btn": "Reset Password",
+    "verify_btn": "Verify Email",
+    "confirm": "Confirm Password",
+    "update_btn": "Password Updated"
+  };
+
+  return (
+    <div className='container'>
+      <div className='box'>
+
+        <h1>{headings[action] || ""}</h1>
+
+        <div className='text-box'>
+          {action==="Sign Up" && (
+              <input type="text" placeholder='Name' />
+          )}
+
+
+          {action !== "Forgot_Password" && action!=="reset_btn" && action!=="verify_btn" && action!=="confirm" && action!=="update_btn" && (
+            <>
+              <input type="email" placeholder="Email Id" />
+              <input type="password" placeholder="Password" />
+              <span className='fgt'>  
+                Forgot password? 
+                <a onClick={()=>setAction("Forgot_Password")} href="#">Click here</a>
+              </span>
+            </>
+          )}
+
+
+
+
+          {action==="Forgot_Password" && (
+            <>
+              <div className='arrow'>
+                <img src={arrow_back} alt="" />
+              </div>
+              <div className='forgo'>
+                <h2>Forgot password</h2>
+                <p>Please enter your email to reset the password</p>
+                <input type="email" placeholder='Enter your email' />
+                <button className={action} onClick={() => setAction("reset_btn")}>Reset Password</button>
+              </div>
+            </>
+          )}
+
+
+
+          {action==="reset_btn" && (
+            <div className='reset'>
+              <h4>Check your email</h4>
+              <p>We sent a reset link. Enter the 5-digit code mentioned in the email</p>
+              <div>
+                <input type="number" />
+                <input type="number" />
+                <input type="number" />
+                <input type="number" />
+                <input type="number" />
+              </div>
+              <button className={action} onClick={() => setAction("verify_btn")}>Verify Code</button>
+              <span>Haven't got the email yet? <a href="#">Resend email</a></span>
+            </div>
+          )}
+
+
+
+
+          {action==="verify_btn" && (
+            <div className='confirm'>
+              <h4>Password reset</h4>
+              <p>Your password has been successfully reset. Click confirm to set a new password.</p>
+              <button className={action} onClick={() => setAction("confirm")}>Confirm</button>
+            </div>
+          )}
+
+
+
+          {action==="confirm" && (
+            <div className='newpwsd'>
+              <div>
+                <h2>Set a new Password</h2>
+                <p>Create a new password. Ensure it differs from previous ones for security.</p>
+              </div>
+              <div className='pc'>
+                <h4>Password</h4>
+                <input type="password" placeholder='Enter your new password'/>
+                <h4>Confirm Password</h4>
+                <input type="password" placeholder='Re-enter password'/>
+              </div>
+              <div className='up_btn'>
+                <button className={action} onClick={() => setAction("update_btn")}>Update Password</button>
+              </div>
+            </div>
+          )}
+
+
+
+          {action==="update_btn" && (
+            <div className='last'>
+              <img src={right} alt="" />
+              <h2>Successful</h2>
+              <p>Congratulations! Your password has been changed. Click continue to login.</p>
+              <div className='last_btn'>
+                <button className={action} onClick={() => setAction("Sign Up")}>Continue</button>
+              </div>
+            </div>
+          )}
+
+
+
+          {action!=="verify_btn" && action!=="confirm" && action!=="Forgot_Password" && action!=="reset_btn" && action!=="update_btn" && (
+            <>
+              <div className='icons-box'>
+                <div>
+                  <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                    <img className="pic1" src={google} alt="Google" />
+                  </a>
+                </div>
+                <div>
+                  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                    <img className="pic2" src={fb} alt="Facebook" />
+                  </a>
+                </div>
+                <div>
+                  <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">
+                    <img className="pic3" src={github} alt="GitHub" />
+                  </a>
+                </div>
+                <div>
+                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    <img className="pic4" src={insta} alt="Instagram" />
+                  </a>
+                </div>
+              </div>
+
+              <div className='btn'>
+                <button id="btn1" className={action==="Sign Up" ? "gray":"submit"} onClick={()=>setAction("Sign Up")}>Sign Up</button>
+                <button id="btn2" className={action==="Login" ? "gray":"submit"} onClick={()=>setAction("Login")}>Login</button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginSignup;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//css
+*
+{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    background: linear-gradient(#2A0087,#42006C);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container
+{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid rgb(122, 117, 117);
+   
+  
+}
+
+
+
+
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30vw;
+  width: 38vw;
+  /*Glass-effects*/border: 2px solid rgb(191, 184, 184);
+  /*lighttransparentborder*/background:white;
+  /*transparentwhitebackground*/backdrop-filter: blur(10px);
+  /*mainglassblureffect*/-webkit-backdrop-filter: blur(10px);
+  /*Safarisupport*/box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  /*optional:;
+  depth*/padding-bottom: 7vw;
+  padding-top: 5vw;
+  border-radius: ;
+  -webkit-border-radius:2vw ;
+  -moz-border-radius: ;
+  -ms-border-radius: ;
+  -o-border-radius: ;
+}
+
+.text-box{
+    display: flex;
+    flex-direction: column;
+    gap:1vw;
+    margin-top: 3vw;
+    
+
+}
+
+
+input{
+
+    height: 4vw;
+    width:30vw;
+    padding-left: 2vw;
+    /* border:none; */
+    background-color: #eaeaea;
+    border:none;
+    box-shadow: 2px 2px 2px -1px;
+    
+}
+
+.btn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vw;
+}
+
+.btn>button{
+    height: 3vw;
+    width:8vw;
+    border-radius: 2vw;
+    border:none;
+    /* background-color:#2A0087; */
+    color:white;
+    cursor:pointer;
+   
+ 
+
+    
+}
+
+#btn2{
+ box-shadow: 2px 2px 2px -1px rgb(83, 57, 57);
+}
+
+#btn1{
+ box-shadow: 2px 2px 2px -1px rgb(29, 29, 29);
+}
+
+
+
+
+
+h1{
+    /*color:white;
+    */color:#2A0087;
+    font-size: 3.2vw;
+   
+}
+
+
+img{
+    height: 1vw;
+    width:1vw;
+}
+
+.user{
+    position: relative;
+    top:1vw;
+}
+
+.gray{
+     background-color:#2A0087;
+   
+
+}
+
+.submit{
+   background-color:rgb(208, 201, 201) ;
+   
+}
+
+
+
+a{
+    text-decoration: none;
+}
+
+.fgt{
+    font-size: small;
+}
+
+.icons-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1.5vw;
+    /* border: 2px solid red; */
+    height:4vw;
+
+}
+
+.icons-box>div{
+    border:2px solid rgb(248, 243, 243);
+    width:max-content;
+    border-radius: 50vw;
+    -webkit-border-radius: 50vw;
+    -moz-border-radius: 50vw;
+    -ms-border-radius: 50vw;
+    -o-border-radius: 50vw;
+    box-shadow: 2px 2px 2px -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+
+
+
+.pic1,.pic2,.pic3{
+    height: 2.7vw;
+    width:2.7vw;
+    cursor:pointer;
+    
+}
+
+.pic4{
+    height: 2.3vw;
+    width:2.3vw;
+    cursor:pointer;
+  
+}
+
+/* 👇 Zoom effect on social icons */
+.icons-box img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.verify_btn{
+    height: 3vw;
+    width:12vw;
+    border:none;
+    box-shadow: 2px 2px 2px -1px black;
+    cursor: pointer;
+    background-color:rgb(0, 122, 204);
+    color:white;
+}
+
+
+.confirm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1vw;
+    /* width:12vw; */
+}
+
+
+.reset>button
+{
+    height: 3vw;
+    width:10vw;
+    background-color:rgb(0, 122, 204);
+    color:white;
+    margin-top: 2vw;
+}
+
+
+
+
+
+
+.newpwsd{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap:3vw;
+    font-size: 1vw;
+    border:none;
+
+
+}
+
+.update_btn{
+    height: 4vw;
+    width:30vw;
+     background-color:rgb(0, 122, 204);
+     color:white;
+     border:none;
+     box-shadow: 2px 2px 2px -1px black;
+
+}
+
+.pc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1vw;
+}
+
+h4{
+    /* border: 2px solid; */
+    text-align: left;
+    width: 100%;
+}
+
+
+.pc>input{
+    border:none;
+    box-shadow: 2px 2px 2px -1px black;
+}
+
+
+
+
+.forgo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:3vw;
+    /* height:5vw; */
+    /* border:2px solid red; */
+    padding-bottom: 8vw;
+    
+}
+
+.forgo>h2{
+    width: 100%;
+
+}
+
+.forgo>p1{
+    width:100%;
+
+}
+
+.forgo>button{
+      background-color:rgb(0, 122, 204);
+      font-size: 1.2vw;
+      width:12vw;
+}
+
+.forgo>img{
+     height: 3vw;
+     width:2vw;
+     display: flex;
+     border: 2px solid;
+     width:max-content;
+     border-radius:2vw ;
+     -webkit-border-radius:2vw ;
+     -moz-border-radius:2vw ;
+     -ms-border-radius:2vw ;
+     -o-border-radius:2vw ;
+     justify-content: center;
+     align-items: center;
+}
+
+.update_btn{
+    cursor:pointer;
+}
+
+
+
+
+.last{
+    display: flex;
+    flex-direction: column;
+    gap:1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.up_btn>button{
+     background-color:rgb(0, 122, 204);
+     color:white;
+     height:3vw;
+     width:12vw;
+     border-radius: 1vw;
+     -webkit-border-radius: 1vw;
+     -moz-border-radius: 1vw;
+     -ms-border-radius: 1vw;
+     -o-border-radius: 1vw;
+}
+
+.arrow{
+    display: flex;
+    /* border:2px solid red; */
+    width:max-content;
+    border-radius: 50vw;
+    -webkit-border-radius: 50vw;
+    -moz-border-radius: 50vw;
+    -ms-border-radius: 50vw;
+    -o-border-radius: 50vw;
+    padding-bottom: 4vw;
+}
+
+.arrow>img{
+    height: 3vw;
+    width:4vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 426px) 
+{
+  .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vw;
+  width: 80vw;
+  
+  border: 2px solid rgba(255, 255, 255, 0.3); 
+  background:white;     
+  padding-bottom: 2vw;
+  padding-top: 2vw;
+}
+
+
+.btn>button{
+    height:8vw;
+    width:22vw;
+    border-radius: 4vw;
+    font-size: 3vw;
+   
+}
+
+
+
+.text-box{
+    gap:3vw;
+    margin-top: 6vw
+
+}
+
+
+input{
+
+    height: 10vw;
+    width:65vw;
+    padding-left: 2vw;
+  
+    
+}
+
+h1{
+    
+    
+    font-size: 7.2vw;
+   
+}
+
+.fgt{
+    font-size: 2.9vw;
+}
+
+
+}
+
+@media (min-width: 426px )  and (max-width:768px)
+{
+    .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vw;
+  width: 75vw;
+  
+
+  /* Glass-effects*/
+  border: 2px solid rgba(255, 255, 255, 0.3); /* light transparent border */
+  background:white;      /* transparent white background */
+  backdrop-filter: blur(10px);              /* main glass blur effect */
+  -webkit-backdrop-filter: blur(10px);      /* Safari support */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* optional: depth */
+  padding-bottom: 2vw;
+  padding-top: 2vw;
+}
+
+
+.btn>button{
+    height:6vw;
+    width:20vw;
+    border-radius: 4vw;
+    font-size: 3vw;
+   
+}
+
+input{
+
+    height: 10vw;
+    width:55vw;
+    padding-left: 2vw;
+  
+    
+}
+
+.text-box{
+    gap:3vw;
+    margin-top: 6vw
+
+}
+
+
+h1{
+    
+    
+    font-size: 5.2vw;
+   
+}
+
+.fgt{
+    font-size: 2.9vw;
+}
+
+
+}
+
+.Forgot_Password
+
+{
+    height: 3vw;
+    background-color:rgb(118, 120, 255) ;
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2vw;
+    cursor: pointer;
+    /* border:2px solid red; */
+    margin-top: 1vw;
+    border:none;
+    box-shadow: 2px 2px 2px -1px rgb(7, 5, 5);
+
+}
+
+.reset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2vw;
+}
+
+.reset>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:3vw;
+    /* width:1vw; */
+}
+
+.reset>div>input{
+    width:2vw;
+    scroll-behavior: none;
+   
+}
+
+@media (min-width: 1024px )  and (max-width:1440px)
+{
+   input{
+
+  font-size: 1.5vw;
+  
+    
+}
+
+}
+
+@media (min-width: 1440px )  and (max-width:2560px)
+{
+      input{
+
+  font-size: 1.5vw;
+  
+    
+}
+
+.fgt{
+    font-size: 1.4vw;
+}
+
+
+.btn>button{
+    height:4vw;
+    width:12vw;
+    border-radius: 4vw;
+    font-size: 3vw;
+    
+}
+
+
+}
+
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.box {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+
