@@ -22,19 +22,19 @@ const LoginSignup = () => {
           <h1 className='su'>Sign Up</h1>
           <div className="logo"> 
             {/* <img src={user} alt="" /> */}
-            <input type="text" placeholder='UserName'/>
+            <input className="inp" type="text" placeholder='UserName'/>
             </div>
 
 
           <div className="logo"> 
             {/* <img src={email} alt="" /> */}
-            <input type="email" placeholder='Email Id' />
+            <input className="inp" type="email" placeholder='Email Id' />
             </div>
 
 
           <div className="logo">
             {/* <img src={password} alt="" /> */}
-             <input type="password" placeholder='Password' />
+             <input className="inp" type="password" placeholder='Password' />
              </div>
 
          
@@ -54,10 +54,10 @@ const LoginSignup = () => {
       content = (
         <>
           <h1 className='su'>Login</h1>
-          <input type="email" placeholder='Email Id' />
-          <input type="password" placeholder='Password' />
+          <input className="inp"type="email" placeholder='Email Id' />
+          <input className="inp"type="password" placeholder='Password' />
           <div className='forgot'>
-            <p>
+            <p className='fp'>
               Forgot Password?{" "}
               <a
                 href="#"
@@ -78,9 +78,9 @@ const LoginSignup = () => {
       content = (
         <>
           <h1 className='su2'>Forgot Password</h1>
-          <input type="email" placeholder='Enter your registered email' />
+          <input className="inp" type="email" placeholder='Enter your registered email' />
           <button className="submit1" onClick={()=> setAction("Verify_Password")}>Reset Password</button>
-          <p
+          <p className='back_to_login'
             onClick={() => setAction("Login")}
             style={{ cursor: 'pointer', color: 'blue', marginTop: '1vw' }}
           >
@@ -109,7 +109,7 @@ const LoginSignup = () => {
          
 
            <button className='verify'  style={{cursor:'pointer'}}onClick={()=> setAction("Password_reset_confirm")}>Verify Code</button> 
-           <p>Didnt you recieve any code? <a onClick={()=> setAction("Resend_Code")}style={{ textDecoration:'none'}}href="#">Resend Code</a></p>
+           <p className='r_a_c'>Didnt you recieve any code? <a onClick={()=> setAction("Resend_Code")}style={{ textDecoration:'none'}}href="#">Resend Code</a></p>
         </>
       );
       break;
@@ -152,6 +152,8 @@ const LoginSignup = () => {
       case "Verify_Password":
       content = (
         <>
+
+       
        <h1 className='v'>Check Your email</h1>
        <p className='otps'>we sent a reset link to contact@dscode.. com <br />enter 5 digit code that mentioned in the email</p> 
        
@@ -167,7 +169,7 @@ const LoginSignup = () => {
          
 
            <button className='verify' onClick={() => setAction("Create_New_Password")}>Verify Code</button> 
-           <p>Didnt you recieve any code? <a onClick={()=> setAction("Resend_Code")}style={{ textDecoration:'none'}}href="#">Resend Code</a></p>
+           <p className='r_a_c'>Didnt you recieve any code? <a onClick={()=> setAction("Resend_Code")}style={{ textDecoration:'none'}}href="#">Resend Code</a></p>
         </>
       );
       break;
@@ -181,8 +183,8 @@ const LoginSignup = () => {
       case "Resend_Code":
       content = (
         <>
-       <h1 className='v'>Verify your account</h1>
-       <p className='otps'>Enter the New 5-digit code sent to your email</p>
+       <h1 className='v'>Check Your email</h1>
+       <p className='otps'>we sent a reset link to contact@dscode.. com <br />enter 5 digit code that mentioned in the email</p>
         <div className='btn2' onClick={()=> setAction("number_otp")} id='bt2'>
             <button></button>
             <button></button>
@@ -195,7 +197,7 @@ const LoginSignup = () => {
          
 
            <button className='verify' onClick={() => setAction("Create_New_Password")}>Verify</button> 
-           <p>Didnt you recieve any code? <a href="#" >Resend Code</a></p>
+           <p className='r_a_c'>Didnt you recieve any code? <a href="#" >Resend Code</a></p>
         </>
       );
       break;
@@ -208,16 +210,20 @@ const LoginSignup = () => {
       case "Create_New_Password":
       content = (
         <>
-         <h1 style={{ width:'34vw'}}>Set a new Password</h1>
+        <div className='cnp_div'>
+             <h1 style={{ width:'34vw'}}>Set a new Password</h1>
 
            <p style={{ width:'34vw',paddingBottom:'3vw'}}>Create a new password.Ensure it differs from previous ones for security</p>
            <div className='cnp'>
               <p>Password</p>
-              <input type="text" placeholder='Enter your Password'/>
+              <input className="inp" type="text" placeholder='Enter your Password'/>
               <p>Confirm Password</p>
-              <input type="text"  placeholder='Confirm your password'/>
+              <input className="inp" type="text"  placeholder='Confirm your password'/>
+                         <button className='resetbtn'style={{ height:'3vw',width:'12vw',backgroundColor:'rgb(0, 97, 255',color:'white'}} onClick={() => setAction("Password_Update")}>Reset Password</button>
+
            </div>
-           <button className='resetbtn'style={{ height:'3vw',width:'12vw',backgroundColor:'rgb(0, 97, 255',color:'white'}} onClick={() => setAction("Password_Update")}>Reset Password</button>
+        </div>
+        
         </>
       );
       break;
@@ -230,6 +236,7 @@ const LoginSignup = () => {
         <> 
           <div className="last1">
             <button className='right_logo'>✓</button>
+            <h2>Sucessfull</h2>
             <p>Congratulations! Your Password has been  changed.Click continue to login.</p>
             <button onClick={()=>setAction("Login")}>Update Password</button>
           </div>
@@ -259,8 +266,8 @@ const LoginSignup = () => {
         {/* Button block only for Sign Up and Login */}
         {(action === "Sign Up" || action === "Login") && (
           <div className='btn'>
-            <button id="btn1"className={action === "Sign Up" ? "gray" : "submit"} onClick={() => setAction("Sign Up")} > Sign Up </button>
-            <button  id="btn1" className={action === "Login" ? "gray" : "submit"} onClick={() => setAction("Login")} > Login  </button>
+            <button id="btn1" className={`btn1 ${action === "Sign Up" ? "gray" : "submit"}`} onClick={() => setAction("Sign Up")} > Sign Up </button>
+            <button id="btn1" className={`btn1 ${action === "Login" ? "gray" : "submit"}`} onClick={() => setAction("Login")} > Login  </button>
           </div>
         )}
 
