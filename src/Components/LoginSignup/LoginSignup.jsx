@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './LoginSignup.css';
 import google from '../Assets/google.png';
 import fb from '../Assets/fb.png';
@@ -260,7 +260,7 @@ const LoginSignup = () => {
 
   return (
     <div className='container'>
-      <div key={action} className={`box slide-up`}>
+      <div key={action} className={`box slide-up ${action !== 'Verify_Password' && action !== 'number_otp' ? 'slide-up-soft' : ''}`}>
         {content}
 
         {/* Button block only for Sign Up and Login */}
