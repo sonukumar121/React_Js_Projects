@@ -31,7 +31,8 @@ body{
   justify-content: center;
   min-height: 30vw;
   height: auto;
-  width: 38vw;
+    width: 38vw;
+    max-width: 900px; /* prevent the box from becoming too wide on large desktops */
   background: white;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -45,6 +46,7 @@ body{
 input{
     display: flex;
     width:32vw;
+    max-width: 640px; /* keep inputs from growing too large on wide screens */
     gap:3vw;
     height: 4vw;
     background-color:rgb(224, 224, 224);
@@ -240,6 +242,8 @@ height:2.3vw ;
     /* border:2px solid red; */
     width:34vw;
     padding-bottom: 4vw;
+    font-size: 2.5vw !important;
+    border: none;
 }
 
 
@@ -250,6 +254,8 @@ height:2.3vw ;
     -ms-border-radius: 2vw;
     -o-border-radius: 2vw;
     cursor: pointer;
+    display: block;
+    margin: 0 auto;
 }
 
 .cnp{
@@ -337,7 +343,7 @@ height:2.3vw ;
 
 
 /* Slide-up animation for showing pages from bottom */
-@keyframes slideUpFromBottom {
+/* @keyframes slideUpFromBottom {
     0% {
         transform: translateY(40vh);
         opacity: 0;
@@ -349,5 +355,781 @@ height:2.3vw ;
 }
 
 .slide-up {
-    animation: slideUpFromBottom 600ms ease-out both;
+    animation: slideUpFromBottom 800ms ease-out both;
+} */
+
+
+
+@media screen and (max-width: 480px) 
+{
+   .box{
+    width: 65vw;
+    height: 65vw;
+    padding: 8vw 0 10vw 0;
+    gap: 3vw;
+   }
+
+
+   .btn{
+    display: flex;
+    /* border:2px solid red; */
+    width:50vw;
+    justify-content: space-between;
+
+   }
+
+   .btn>button{
+    height: 7vw;
+    width:17vw;
+    border-radius: 3vw;
+    font-size: 3vw;
+   }
+
+   .su{
+    font-size: 6vw;
+    padding-bottom: 5vw;
+   }
+
+   .inp{
+    width:50vw !important;
+    height: 9vw;
+    font-size: 3vw;
+   }
+
+   .icons>.icon1{
+    height: 10vw;
+    width:10vw;
+   }
+
+    .icons>.icon2{
+    height: 7vw;
+    width:7vw;
+   }
+
+    .icons>.icon3{
+    height: 7vw;
+    width:7vw;
+   }
+
+    .icons>.icon4{
+    height: 7vw;
+    width:7vw;
+   }
+
+   .inp
+   {
+    font-size: 3vw;
+   }
+
+   .fp{
+    font-size: 3vw;
+    padding-left: 5vw;
+   }
+
+   .su2{
+    font-size: 4vw;
+    padding-bottom: 6vw;
+    width:65vw;
+    padding-left: 15vw;
+   }
+
+   .submit1{
+    height: 7vw;
+    width:25vw;
+    font-size: 3vw;
+    margin-top: 4vw;
+   }
+
+   .v{
+    font-size: 4vw;
+    height: 6vw;
+    width:50vw;
+    padding-bottom: 4vw;
+   }
+
+   .otps{
+    width:50vw;
+    padding-bottom: 6vw;
+    font-size: 4vw;
+   }
+
+   .btn2>button{
+    height: 7vw;
+    width:7vw;
+    font-size: 3vw !important;
+   }
+
+   .verify{
+    height: 7vw;
+    width:20vw;
+    font-size: 3vw;
+   }
+
+   .r_a_c{
+    font-size: 3vw;
+   }
+
+
+   .confirm{
+    /* border:2px solid red; */
+    width:62vw;
+    display: flex;
+    flex-direction: column;
+    gap:8vw;
+    height: 62vw;
+    align-items: center;
+    
+   }
+
+   .confirm>p{
+    font-size: 3vw;
+    width: 62vw;
+    /* border:2px solid red; */
+   }
+
+   .confirm>button{
+    height: 6vw!important;
+    width:25vw;
+    font-size: 3vw;
+   }
+
+   .cnp_div{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    /* border:2px solid red; */
+    width:100%;
+   }
+
+   .cnp_div>h1{
+    font-size: 5vw;
+   }
+
+   .cnp_div>p{
+    font-size: 3vw;
+    /* border:2px solid red; */
+    width:52vw !important;
+   }
+
+   .cnp>input{
+    height: 7vw !important;
+    width:50vw;
+    /* font-size: 2vw; */
+   }
+
+   .resetbtn{
+    height: 7vw !important;
+    width:35vw !important;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 1vw;;
+   }
+
+   .cnp{
+    display: flex;
+    justify-content: center;
+    /* border:2px solid red; */
+    width:100%;
+    gap:4vw;
+    /* align-items: center; */
+   }
+
+   .last1{
+    width: 62vw;
+    height: 60vw;
+    gap: 9vw;
+    padding: 4vw;
+    /* border:2px solid red; */
+   }
+
+   .last1>.right_logo{
+    height: 15vw !important;
+    width:20vw;
+   }
+
+   .last1>button{
+    height: 10vw !important;
+    width:35vw;
+    font-size: 3vw;
+   }
+
+   .last1>p{
+    font-size: 3vw;
+   }
+}
+
+
+
+/* Tablets */
+@media screen and (max-width: 768px)
+ {
+   .box{
+    width: 65vw;
+    height: 65vw;
+    padding: 8vw 0 10vw 0;
+    gap: 3vw;
+   }
+
+
+   .btn{
+    display: flex;
+    /* border:2px solid red; */
+    width:50vw;
+    justify-content: space-between;
+
+   }
+
+   .btn>button{
+    height: 7vw;
+    width:17vw;
+    border-radius: 3vw;
+    font-size: 3vw;
+   }
+
+   .su{
+    font-size: 6vw;
+    padding-bottom: 5vw;
+   }
+
+   .inp{
+    width:50vw !important;
+    height: 9vw;
+    font-size: 3vw;
+   }
+
+   .icons>.icon1{
+    height: 10vw;
+    width:10vw;
+   }
+
+    .icons>.icon2{
+    height: 7vw;
+    width:7vw;
+   }
+
+    .icons>.icon3{
+    height: 7vw;
+    width:7vw;
+   }
+
+    .icons>.icon4{
+    height: 7vw;
+    width:7vw;
+   }
+
+   .inp
+   {
+    font-size: 3vw;
+   }
+
+   .fp{
+    font-size: 3vw;
+    padding-left: 5vw;
+   }
+
+   .su2{
+    font-size: 4vw;
+    padding-bottom: 6vw;
+    width:65vw;
+    padding-left: 15vw;
+   }
+
+   .submit1{
+    height: 7vw;
+    width:25vw;
+    font-size: 3vw;
+    margin-top: 4vw;
+   }
+
+   .v{
+    font-size: 4vw;
+    height: 6vw;
+    width:50vw;
+    padding-bottom: 4vw;
+   }
+
+   .otps{
+    width:50vw;
+    padding-bottom: 6vw;
+    font-size: 4vw;
+   }
+
+   .btn2>button{
+    height: 7vw;
+    width:7vw;
+    font-size: 3vw !important;
+   }
+
+   .verify{
+    height: 7vw;
+    width:20vw;
+    font-size: 3vw;
+   }
+
+   .r_a_c{
+    font-size: 3vw;
+   }
+
+
+   .confirm{
+    /* border:2px solid red; */
+    width:62vw;
+    display: flex;
+    flex-direction: column;
+    gap:8vw;
+    height: 62vw;
+    align-items: center;
+    
+   }
+
+   .confirm>p{
+    font-size: 3vw;
+    width: 62vw;
+    /* border:2px solid red; */
+   }
+
+   .confirm>button{
+    height: 6vw!important;
+    width:25vw;
+    font-size: 3vw;
+   }
+
+   .cnp_div{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    /* border:2px solid red; */
+    width:100%;
+    padding-left: 5vw;
+   }
+
+   .cnp_div>h1{
+    font-size: 5vw;
+   }
+
+   .cnp_div>p{
+    font-size: 3vw;
+    /* border:2px solid red; */
+    width:52vw !important;
+   }
+
+   .cnp>input{
+    height: 7vw !important;
+    width:50vw;
+    /* font-size: 2vw; */
+   }
+
+   .resetbtn{
+    height: 7vw !important;
+    width:35vw !important;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 1vw;;
+   }
+
+   .cnp{
+    display: flex;
+    justify-content: center;
+    /* border:2px solid red; */
+    width:100%;
+    gap:4vw;
+    /* align-items: center; */
+   }
+
+   .last1{
+    width: 62vw;
+    height: 60vw;
+    gap: 9vw;
+    padding: 4vw;
+    /* border:2px solid red; */
+   }
+
+   .last1>.right_logo{
+    height: 15vw !important;
+    width:20vw;
+   }
+
+   .last1>button{
+    height: 10vw !important;
+    width:35vw;
+    font-size: 3vw;
+   }
+
+   .last1>p{
+    font-size: 3vw;
+   }
+ }
+
+
+
+
+
+@media screen and (max-width: 1024px)
+ {
+    .box{
+    width: 65vw;
+    height: 65vw;
+    padding: 8vw 0 10vw 0;
+    gap: 3vw;
+   }
+
+
+   .btn{
+    display: flex;
+    /* border:2px solid red; */
+    width:50vw;
+    justify-content: space-between;
+
+   }
+
+   .btn>button{
+    height: 7vw;
+    width:17vw;
+    border-radius: 3vw;
+    font-size: 3vw;
+   }
+
+   .su{
+    font-size: 6vw;
+    padding-bottom: 5vw;
+   }
+
+   .inp{
+    width:50vw !important;
+    height: 9vw;
+    font-size: 3vw;
+   }
+
+   .icons>.icon1{
+    height: 10vw;
+    width:10vw;
+   }
+
+    .icons>.icon2{
+    height: 7vw;
+    width:7vw;
+   }
+
+    .icons>.icon3{
+    height: 7vw;
+    width:7vw;
+   }
+
+    .icons>.icon4{
+    height: 7vw;
+    width:7vw;
+   }
+
+   .inp
+   {
+    font-size: 3vw;
+   }
+
+   .fp{
+    font-size: 3vw;
+    padding-left: 5vw;
+   }
+
+   .su2{
+    font-size: 4vw;
+    padding-bottom: 6vw;
+    width:65vw;
+    padding-left: 15vw;
+   }
+
+   .submit1{
+    height: 7vw;
+    width:25vw;
+    font-size: 3vw;
+    margin-top: 4vw;
+   }
+
+   .v{
+    font-size: 4vw;
+    height: 6vw;
+    width:50vw;
+    padding-bottom: 4vw;
+   }
+
+   .otps{
+    width:50vw;
+    padding-bottom: 6vw;
+    font-size: 4vw;
+   }
+
+   .btn2>button{
+    height: 7vw;
+    width:7vw;
+    font-size: 3vw !important;
+   }
+
+   .verify{
+    height: 7vw;
+    width:20vw;
+    font-size: 3vw;
+   }
+
+   .r_a_c{
+    font-size: 3vw;
+   }
+
+
+   .confirm{
+    /* border:2px solid red; */
+    width:62vw;
+    display: flex;
+    flex-direction: column;
+    gap:8vw;
+    height: 62vw;
+    align-items: center;
+    
+   }
+
+   .confirm>p{
+    font-size: 3vw;
+    width: 62vw;
+    /* border:2px solid red; */
+   }
+
+   .confirm>button{
+    height: 6vw!important;
+    width:25vw;
+    font-size: 3vw;
+   }
+
+   .cnp_div{
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    /* border:2px solid red; */
+    width:100%;
+   }
+
+   .cnp_div>h1{
+    font-size: 5vw;
+   }
+
+   .cnp_div>p{
+    font-size: 3vw;
+    /* border:2px solid red; */
+    width:52vw !important;
+   }
+
+   .cnp>input{
+    height: 7vw !important;
+    width:50vw;
+    /* font-size: 2vw; */
+   }
+
+   .resetbtn{
+    height: 7vw !important;
+    width:35vw !important;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 1vw;;
+   }
+
+   .cnp{
+    display: flex;
+    justify-content: center;
+    /* border:2px solid red; */
+    width:100%;
+    gap:4vw;
+    /* align-items: center; */
+   }
+
+   .last1{
+    width: 62vw;
+    height: 60vw;
+    gap: 9vw;
+    padding: 4vw;
+    /* border:2px solid red; */
+   }
+
+   .last1>.right_logo{
+    height: 15vw !important;
+    width:20vw;
+   }
+
+   .last1>button{
+    height: 10vw !important;
+    width:35vw;
+    font-size: 3vw;
+   }
+
+   .last1>p{
+    font-size: 3vw;
+   }
+ }
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1440px)
+{
+   .box {
+    width: 40vw;
+    height: 30vw;
+    padding: 6vw 0 8vw 0;
+    gap: 2.1vw;
+   }
+
+   .inp{
+    width:30vw !important;
+    height: 5vw;
+    font-size: 1.5vw;
+   }
+
+    .btn{
+     display: flex;
+     /* border:2px solid red; */
+     width:40vw;
+     justify-content: space-around;
+    
+    }
+
+   .icons>.icon1{
+    height: 4vw;
+    width:4vw;
+   }
+
+    .icons>.icon2{
+    height: 4.3vw;
+    width:4.3vw;
+   }
+
+    .icons>.icon3{
+    height: 3vw;
+    width:3vw;
+   }
+
+    .icons>.icon4{
+    height: 3vw;
+    width:3vw;
+   }
+
+   .btn1{
+    height: 3vw !important;
+    width:8vw  !important;
+
+   }
+
+   .submit1{
+    height: 3vw;
+    width:15vw;
+    font-size: 1.4vw;
+    margin-top: 3vw;
+   }
+   .back_to_login{
+    font-size: 1.5vw;
+   }
+
+   .otps{
+    width:40vw;
+    padding-bottom: 5vw;
+    font-size: 1.3vw !important;
+        padding-left: 2vw !important;
+
+   }
+
+   .v{
+    font-size: 2vw;
+    height: 5vw;
+    width:40vw;
+    padding-bottom: 3vw;
+    padding-left: 2vw !important;
+   }
+
+   .verify{
+    height: 4vw;
+    width:17vw;
+    font-size: 1.8vw;
+   }
+
+   .r_a_c{
+    font-size: 1.4vw;
+   }
+   
+
+   .confirm{
+    /* border:2px solid red; */
+    width:40vw;
+    display: flex;
+    flex-direction: column;
+    gap:5vw;
+    height: 40vw;
+    align-items: center;
+   }
+   .confirm>p{
+    font-size: 1.8vw;
+    width: 50vw;
+    /* border:2px solid red; */
+   }
+
+   .confirm>button{
+    height: 4vw!important;
+    width:20vw;
+    font-size: 2vw;
+   }
+
+   .confirm>h2{
+    font-size: 3vw;
+   }
+
+
+   .cnp_div{
+        display: flex;
+        flex-direction: column;
+        gap:0vw;
+   }
+
+   .cnp_div>h1{
+    font-size: 2vw;
+   }
+
+   .cnp_div>p{
+    font-size: 1.3vw;
+   }
+
+
+   .resetbtn{
+    height: 4vw !important;
+    width:25vw !important;
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 1vw;;
+   }
+
+   .cnp{
+    display: flex;
+    justify-content: center;
+    /* border:2px solid red; */
+    width:100%;
+    gap:2vw;
+    /* align-items: center; */
+   }
+
+
+   .last1{
+    width: 50vw;
+    height: 45vw;
+    gap: 6vw;
+    padding: 3vw;
+    /* border:2px solid red; */
+    font-size: 1vw;
+   }
+
+   .last1>button{
+    height: 3vw !important;
+    width:15vw;
+    font-size: 1.4vw;
+   }
+
+   .fp{
+    font-size: 1vw;
+    padding-left: 3vw;
+   }
 }
