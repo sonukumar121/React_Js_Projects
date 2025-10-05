@@ -358,6 +358,17 @@ height:2.3vw ;
     animation: slideUpFromBottom 800ms ease-out both;
 } */
 
+/* soft slide-in from left used only for the initial Sign Up view */
+@keyframes slideInFromLeftSoft {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.slide-up-soft {
+    /* name kept for compatibility; animation now slides in from left */
+    animation: slideInFromLeftSoft 1600ms cubic-bezier(.22,.9,.35,1) both;
+}
+
 
 
 @media screen and (max-width: 480px) 
